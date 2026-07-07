@@ -54,6 +54,7 @@
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "vinuka";
+      users.users.vinuka.home = "/Users/vinuka";
       nixpkgs.config.allowUnfree = true;
 
       # Disable all documentation engines

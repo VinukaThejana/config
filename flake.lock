@@ -49,6 +49,27 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783458499,
+        "narHash": "sha256-a8whUXG4ThsZNjL92cH4wbl+/dt8CbT/F0zJsfhzFbM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "53ebbdc405acc04acd9bb73ccca462b51ddb8c6d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "master",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
@@ -156,6 +177,7 @@
       "inputs": {
         "asmvik-tap": "asmvik-tap",
         "hashicorp-tap": "hashicorp-tap",
+        "home-manager": "home-manager",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "jorgelbg-tap": "jorgelbg-tap",
