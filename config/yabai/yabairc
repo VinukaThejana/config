@@ -1,0 +1,65 @@
+#!/usr/bin/env sh
+
+# global settings
+yabai -m config layout                      float
+yabai -m config window_placement            second_child
+yabai -m config window_shadow               off
+yabai -m config window_opacity              off
+yabai -m config window_opacity_duration     0.2
+yabai -m config active_window_opacity       1.0
+yabai -m config normal_window_opacity       0.9
+yabai -m config window_border               off
+
+# padding & gaps
+yabai -m config top_padding                 0
+yabai -m config bottom_padding              0
+yabai -m config left_padding                0
+yabai -m config right_padding               0
+yabai -m config window_gap                  0
+
+# mouse
+yabai -m config mouse_follows_focus         off
+yabai -m config focus_follows_mouse         off
+yabai -m config mouse_modifier              fn
+yabai -m config mouse_action1              move
+yabai -m config mouse_action2              resize
+yabai -m config mouse_drop_action          swap
+
+# float rules (apps that should always float)
+yabai -m rule --add app="System Preferences"       manage=off
+yabai -m rule --add app="System Settings"          manage=off
+yabai -m rule --add app="Archive Utility"          manage=off
+yabai -m rule --add app="Activity Monitor"         manage=off
+yabai -m rule --add app="Calculator"               manage=off
+yabai -m rule --add app="Calendar"                 manage=off
+yabai -m rule --add app="Clock"                    manage=off
+yabai -m rule --add app="Finder"                   manage=off
+yabai -m rule --add app="Font Book"                manage=off
+yabai -m rule --add app="Keychain Access"          manage=off
+yabai -m rule --add app="Photos"                   manage=off
+yabai -m rule --add app="Preview"                  manage=off
+yabai -m rule --add app="QuickTime Player"         manage=off
+yabai -m rule --add app="Script Editor"            manage=off
+yabai -m rule --add app="Simulator"                manage=off
+yabai -m rule --add app="Stickies"                 manage=off
+yabai -m rule --add app="TextEdit"                 manage=off
+yabai -m rule --add app="1Password"                manage=off
+yabai -m rule --add app="^System Events$"          manage=off
+yabai -m rule --add app="^SecurityAgent$"          manage=off
+yabai -m rule --add app="^Security Agent$"         manage=off
+yabai -m rule --add app="^UserNotificationCenter$" manage=off
+
+# float rules for specific windows (e.g. dialogs, popups)
+yabai -m rule --add label="Finder"  app="^Finder$"  title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add                 app=".*"        title="(Preferences|Settings|Info)"   manage=off
+
+# force applications for specific spaces
+yabai -m rule --add app="^Ghostty$" grid=40:40:1:1:38:38
+
+# auto balance windows when one is closed
+yabai -m signal --add event=window_destroyed action="yabai -m space --balance"
+
+# add yabai to accessibility permissions
+sudo /opt/homebrew/bin/yabai --load-sa
+
+echo "yabai config loaded"

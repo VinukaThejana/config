@@ -91,4 +91,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/tmux";
     recursive = true;
   };
+
+  xdg.configFile."yabai" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/yabai";
+    recursive = true;
+  };
 }
