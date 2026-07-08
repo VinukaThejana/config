@@ -76,4 +76,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/glow";
     recursive = true;
   };
+
+  xdg.configFile."htop" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/htop";
+    recursive = true;
+  };
 }
