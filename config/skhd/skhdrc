@@ -1,0 +1,9 @@
+
+# open various applicationa
+cmd - e        : /usr/bin/open -a "Finder"
+cmd - b        : /usr/bin/open -a Safari
+cmd + alt - return   : /usr/bin/open -a Ghostty
+cmd + shift - i : /usr/bin/open -a "iPhone Mirroring"
+
+# toggle capslock
+f1                   : shortcuts run "Toggle CAPSLOCK"

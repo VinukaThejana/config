@@ -81,4 +81,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/htop";
     recursive = true;
   };
+
+  xdg.configFile."skhd" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/skhd";
+    recursive = true;
+  };
 }
