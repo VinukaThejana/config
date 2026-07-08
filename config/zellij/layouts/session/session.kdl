@@ -1,0 +1,27 @@
+layout {
+  tab_template name="session" {
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+        plugin location="zellij:strider"
+    }
+    children
+  }
+  session name="1 editor" focus=true {
+    pane borderless=true command="nvim"
+  }
+  session name="2 ref" {
+    pane
+  }
+  session name="3 terminal" {
+    pane
+  }
+  session name="4 server" {
+    pane
+  }
+  session name="5 database" {
+    pane
+  }
+  session name="6 redis" {
+    pane
+  }
+}
