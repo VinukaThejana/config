@@ -71,4 +71,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/nvim";
     recursive = true;
   };
+
+  xdg.configFile."glow" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/glow";
+    recursive = true;
+  };
 }
