@@ -86,4 +86,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/skhd";
     recursive = true;
   };
+
+  xdg.configFile."tmux" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/tmux";
+    recursive = true;
+  };
 }
