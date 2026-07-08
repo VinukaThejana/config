@@ -27,4 +27,8 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/services";
     recursive = true;
   };
+
+  home.file.".ssh/config" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/ssh/config";
+  };
 }
