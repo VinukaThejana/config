@@ -9,4 +9,12 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/nushell";
     recursive = true;
   };
+
+  home.file.".gitconfig" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/git/gitconfig";
+  };
+  xdg.configFile."gitconfig" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/git/identities";
+    recursive = true;
+  };
 }

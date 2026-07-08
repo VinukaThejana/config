@@ -1,0 +1,10 @@
+[user]
+  email = ravindusulakshana2525@gmail.com
+  name = Ravindu Sulakshana
+  signingKey = ~/.ssh/pola.pub
+
+[url "git@github.com-pola"]
+  insteadOf = git@github.com
+
+[gpg]
+  format = ssh

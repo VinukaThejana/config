@@ -1,0 +1,7 @@
+[user]
+  email = vtkodituwakku@students.nsbm.ac.lk
+  name = vtkodituwakku
+  signingKey = 1018D197F1B3B459
+
+[url "git@github.com-uni"]
+  insteadOf = git@github.com

@@ -1,0 +1,10 @@
+[user]
+  email = dilshanrdv@gmail.com
+  name = Rashmika Dilshan
+  signingKey = ~/.ssh/viduranga.pub
+
+[url "git@github.com-viduranga"]
+  insteadOf = git@gitlab.com
+
+[gpg]
+  format = ssh

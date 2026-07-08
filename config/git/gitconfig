@@ -1,0 +1,59 @@
+[init]
+  defaultBranch = main
+
+[commit]
+  gpgSign = true
+
+[user]
+  name = Vinuka Kodituwakku
+  useConfigOnly = true
+
+[include]
+  path = ~/.config/gitconfig/gitconfig.personal
+
+[includeIf "gitdir:~/Documents/university/"]
+  path = ~/.config/gitconfig/gitconfig.uni
+
+[includeIf "gitdir:~/projects/viduranga/"]
+  path = ~/.config/gitconfig/gitconfig.viduranga
+
+[includeIf "gitdir:~/projects/pola/"]
+  path = ~/.config/gitconfig/gitconfig.pola
+
+[includeIf "gitdir:~/projects/polyvoxel/"]
+  path = ~/.config/gitconfig/gitconfig.polyvoxel
+
+[includeIf "gitdir:~/projects/kernel70/self/"]
+  path = ~/.config/gitconfig/gitconfig.kernel70
+
+[includeIf "gitdir:~/projects/kernel70/paffrel/m12m/"]
+  path = ~/.config/gitconfig/gitconfig.m12m
+
+[includeIf "gitdir:~/projects/kernel70/paffrel/self/"]
+  path = ~/.config/gitconfig/gitconfig.paffrel
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = nvim
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
