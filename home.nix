@@ -36,4 +36,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/carapace";
     recursive = true;
   };
+
+  xdg.configFile."gh" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/gh";
+    recursive = true;
+  };
 }
