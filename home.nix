@@ -22,4 +22,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/bin";
     recursive = true;
   };
+
+  home.file."Library/Services" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/services";
+    recursive = true;
+  };
 }
