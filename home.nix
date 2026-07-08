@@ -61,4 +61,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/lf";
     recursive = true;
   };
+
+  xdg.configFile."1Password" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/1Password";
+    recursive = true;
+  };
 }
