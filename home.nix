@@ -51,4 +51,14 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/lazydocker";
     recursive = true;
   };
+
+  xdg.configFile."lazygit" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/lazygit";
+    recursive = true;
+  };
+
+  xdg.configFile."lf" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/lf";
+    recursive = true;
+  };
 }
