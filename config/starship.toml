@@ -1,0 +1,77 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "e_ink"
+
+add_newline = false
+# A minimal left prompt
+format = """$directory$character"""
+
+# move the rest of the prompt to the right
+right_format = """$all"""
+
+command_timeout = 1000
+
+[directory]
+style = "light_gray2"
+truncation_length = 5
+read_only_style = "dark_gray1"
+read_only = " "
+
+[character]
+success_symbol = "[❯](bright_white)"
+error_symbol = "[❯](mid_gray1)"
+vimcmd_symbol = "[❮](bright_white)"
+
+[git_branch]
+style = "mid_gray2"
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[golang]
+format = '[ ](bold mid_gray1)'
+
+[rust]
+symbol = "󱘗 "
+style = "dark_gray2"
+
+[gcloud]
+disabled = true
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[palettes.e_ink]
+foreground = "#C2C2C2"
+background = "#333333"
+bright_white = "#CCCCCC"
+light_gray1 = "#B8B8B8"
+light_gray2 = "#A4A4A4"
+mid_gray1 = "#868686"
+mid_gray2 = "#7C7C7C"
+dark_gray1 = "#686868"
+dark_gray2 = "#5E5E5E"

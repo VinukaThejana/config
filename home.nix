@@ -106,4 +106,8 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/zellij";
     recursive = true;
   };
+
+  xdg.configFile."starship.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/starship.toml";
+  };
 }
