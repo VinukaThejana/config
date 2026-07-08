@@ -1,0 +1,16 @@
+#!/bin/bash
+
+names=(
+  "esp32-30"
+  "esp32-38"
+)
+
+boards=(
+  "esp32:esp32:esp32"
+  "espressif:esp32:vintlabs-devkit-v1"
+)
+
+devices=(
+  "/dev/cu.usbserial-0001"
+  "/dev/cu.usbserial-56B80364531"
+)

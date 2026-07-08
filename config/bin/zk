@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zellij kill-session $(zellij-session-names | fzf)

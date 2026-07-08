@@ -1,0 +1,16 @@
+#!/bin/bash
+
+source ~/bin/arduino.devices
+
+name=$(printf "%s\n" "${names[@]}" | fzf --prompt "Select a board: ")
+index=$(printf "%s\n" "${names[@]}" | grep -nx "$name" | cut -d: -f1)
+
+if [[ -n "$index" && "$index" -ge 1 && "$index" -le ${#names[@]} ]]; then
+    index=$((index - 1))
+
+    board="${boards[$index]}"
+    device="${devices[$index]}"
+    project="$1"
+
+    arduino-cli upload -p "$device" --fqbn "$board" "$project"
+fi

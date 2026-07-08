@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zellij delete-session --force $(zellij-session-names | fzf)

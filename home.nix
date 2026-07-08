@@ -17,4 +17,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/git/identities";
     recursive = true;
   };
+
+  home.file."bin" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/bin";
+    recursive = true;
+  };
 }

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+zellij list-sessions | while read -r line; do
+  echo "$line" | awk -F' ' '{print $1}' | sed 's/\x1b\[[0-9;]*m//g'
+done
