@@ -41,4 +41,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/gh";
     recursive = true;
   };
+
+  xdg.configFile."ghostty" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/ghostty";
+    recursive = true;
+  };
 }
