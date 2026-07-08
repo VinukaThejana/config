@@ -96,4 +96,9 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/yabai";
     recursive = true;
   };
+
+  xdg.configFile."yazai" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/yazai";
+    recursive = true;
+  };
 }

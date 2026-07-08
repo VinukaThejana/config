@@ -1,0 +1,8 @@
+[mgr]
+# Show hidden files in the file manager
+show_hidden = true
+
+# Show latest modified files at the top
+sort_by = "mtime"
+sort_reverse = true
+sort_dir_first = false

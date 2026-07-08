@@ -1,0 +1,87 @@
+# --- Yazi E-Ink Dark Theme (Elegant Edition) ---
+# A minimal, grayscale theme focused on readability and a calm, elegant aesthetic.
+# It uses subtle variations in brightness and style (dim, italic) to create visual hierarchy.
+
+[manager]
+# The base canvas: a dark gray background with a light gray foreground.
+foreground = "#C2C2C2"
+background = "#333333"
+
+# The style for the file the cursor is currently on.
+# A subtle background change with a brighter foreground makes it pop without being jarring.
+hovered = { bg = "#5E5E5E", fg = "#CCCCCC" }
+
+# The style for the preview pane's hovered file.
+preview_hovered = { underline = true, fg = "#CCCCCC" }
+
+# --- Markers for selected files (e.g., when you press space) ---
+[marker]
+copied = { fg = "#7C7C7C" }
+cut = { fg = "#868686" }
+selected = { bg = "#686868" } # A slightly lighter background for marked files.
+
+# --- File-specific styles ---
+[filetype]
+# The default for all files.
+"*" = { fg = "#C2C2C2" }
+
+# Directories are the most important navigation element, so they are brighter and bold.
+directory = { fg = "#B8B8B8", bold = true }
+
+# Symlinks are styled to be distinct but not overpowering.
+symlink = { fg = "#A4A4A4", italic = true }
+
+# Media files have a consistent, mid-tier brightness.
+image = { fg = "#A4A4A4" }
+video = { fg = "#A4A4A4" }
+audio = { fg = "#A4A4A4" }
+
+# Archives and executables are dimmed to reduce visual noise.
+archive = { fg = "#868686", dim = true }
+executable = { fg = "#7C7C7C", dim = true }
+
+# --- Status Bar ---
+# Redesigned for a cohesive, elegant look.
+[status]
+# The entire bar has a unified background, creating a distinct footer.
+background = "#5E5E5E"
+
+# The current directory is the brightest element.
+cwd = { fg = "#CCCCCC", bold = true }
+
+# File attributes use progressively darker, less prominent shades.
+permissions = { fg = "#868686" }
+size = { fg = "#B8B8B8" }
+date = { fg = "#A4A4A4" }
+
+
+# --- Interactive Pop-ups ---
+[input]
+border = { fg = "#A4A4A4" }
+title = { fg = "#B8B8B8" }
+value = { fg = "#C2C2C2" }
+# Reversed video makes it clear what text will be affected by an action.
+selected = { reversed = true }
+
+[confirm]
+border = { fg = "#868686" }
+title = { fg = "#C2C2C2" }
+# High contrast for the active button to clearly indicate the default action.
+active = { fg = "#333333", bg = "#CCCCCC", bold = true }
+inactive = { fg = "#A4A4A4", dim = true }
+
+[completion]
+border = { fg = "#A4A4A4" }
+active = { bg = "#686868" } # A subtle background for the active completion.
+inactive = {}               # Uses default manager colors
+
+[tasks]
+border = { fg = "#7C7C7C" }
+title = { fg = "#B8B8B8" }
+
+# --- Tabs ---
+[tabs]
+# Active tab uses high contrast to show exactly where you are.
+active = { fg = "#333333", bg = "#B8B8B8", bold = true }
+# Inactive tabs are dimmed and have a darker background to recede.
+inactive = { fg = "#A4A4A4", bg = "#5E5E5E", dim = true }

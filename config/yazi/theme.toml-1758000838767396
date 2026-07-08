@@ -1,0 +1,75 @@
+# A Yazi theme that uses a minimal grayscale palette to mimic an e-ink display.
+# Created based on the ghostly e-ink-dark theme.
+
+# The overall color and style of the file manager.
+[manager]
+# Set the default text color and background color.
+foreground = "#C2C2C2"
+background = "#333333"
+
+# Style for the hovered file.
+hovered = { bg = "#5E5E5E", bold = true }
+
+# Style for the preview pane's hovered file.
+preview_hovered = { bg = "#5E5E5E", underline = true }
+
+# --- File-specific styles based on permissions and type ---
+[filetype]
+# This rule will be applied to all files.
+"*" = { fg = "#C2C2C2" }
+
+# Below are some more specific rules for file types.
+directory = { fg = "#B8B8B8", bold = true }
+image = { fg = "#A4A4A4" }
+video = { fg = "#A4A4A4" }
+audio = { fg = "#A4A4A4" }
+archive = { fg = "#868686" }
+symlink = { fg = "#7C7C7C", italic = true }
+
+# --- Status bar at the bottom ---
+[status]
+# The style of the current working directory.
+cwd = { fg = "#333333", bg = "#A4A4A4", bold = true }
+
+# Style of the file permissions.
+permissions = { fg = "#686868" }
+
+# Style of the file size.
+size = { fg = "#B8B8B8" }
+
+# Style of the date and time.
+date = { fg = "#7C7C7C" }
+
+# --- Input and Search ---
+[input]
+# The border and title of the input box.
+border = { fg = "#A4A4A4" }
+title = { fg = "#B8B8B8" }
+
+# The text being typed and the selected text.
+value = { fg = "#C2C2C2" }
+selected = { bg = "#686868", reversed = true }
+
+# --- Tab and Pane Borders ---
+[tabs]
+# The style of the active tab.
+active = { fg = "#333333", bg = "#B8B8B8", bold = true }
+
+# The style of inactive tabs.
+inactive = { fg = "#C2C2C2", bg = "#5E5E5E" }
+
+# --- Other UI Components ---
+[confirm]
+border = { fg = "#868686" }
+title = { fg = "#C2C2C2" }
+active = { fg = "#333333", bg = "#CCCCCC", bold = true }
+inactive = { fg = "#A4A4A4" }
+
+[completion]
+border = { fg = "#A4A4A4" }
+active = { bg = "#686868" }
+inactive = {}               # Uses default manager colors
+
+[tasks]
+border = { fg = "#7C7C7C" }
+title = { fg = "#B8B8B8" }

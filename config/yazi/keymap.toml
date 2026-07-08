@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on = ["<Enter>"]
+run = "plugin --sync smart-enter"
+desc = "Enter a directory, or open a file"
