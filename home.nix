@@ -31,4 +31,9 @@
   home.file.".ssh/config" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/ssh/config";
   };
+
+  xdg.configFile."carapace" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/carapace";
+    recursive = true;
+  };
 }
