@@ -32,6 +32,10 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/ssh/config";
   };
 
+  home.file.".rtorrent.rc" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/rtorrent.rc";
+  };
+
   xdg.configFile."carapace" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/carapace";
     recursive = true;
