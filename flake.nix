@@ -183,6 +183,7 @@
           "zoom"
 
           #-- AI --
+          "codex"
 
           #-- Social Media--
           "telegram"
