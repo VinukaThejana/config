@@ -31,14 +31,14 @@ def ex [
   let name = ($file | path basename)
 
   match $name {
-  $n if ($n | str ends-with [".tar.bz2" ".tbz2" ".tbz" ".tb2"]) => { 
-    run-external "tar" "-xjf" $file 
+  $n if ($n | str ends-with [".tar.bz2" ".tbz2" ".tbz" ".tb2"]) => {
+    run-external "tar" "-xjf" $file
   }
-  $n if ($n | str ends-with [".tar.gz" ".tgz"]) => { 
-    run-external "tar" "-xzf" $file 
+  $n if ($n | str ends-with [".tar.gz" ".tgz"]) => {
+    run-external "tar" "-xzf" $file
   }
-  $n if ($n | str ends-with [".tar.xz" ".tar"]) => { 
-    run-external "tar" "-xf" $file 
+  $n if ($n | str ends-with [".tar.xz" ".tar"]) => {
+    run-external "tar" "-xf" $file
   }
   $n if ($n | str ends-with ".zip") => { run-external "unzip" $file }
   $n if ($n | str ends-with ".rar") => { run-external "unrar" $file }
@@ -61,7 +61,7 @@ def music [
 
 
 # convert m4a file to mp3 format
-# 
+#
 # if a file is provided explicitly, it will convert that file to mp3 format.
 # if no file is provided, it will convert all m4a files in the current directory to mp3 format.
 def convert.m4a.mp3 [
@@ -111,7 +111,7 @@ def convert.mkv.mp4 [
         if (not ($file | path exists)) or ($file | path type) != "file" {
             return $"($file) is not a valid file" | echo
         }
-        
+
         if not ($file | path basename | str ends-with ".mkv") {
             return $"($file) is not an mkv file" | echo
         }

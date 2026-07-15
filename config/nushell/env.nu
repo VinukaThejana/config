@@ -86,6 +86,19 @@ $env.NU_PLUGIN_DIRS = [
     ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
 ]
 
+export def get-secret [
+  ref: string, # the reference to the secret in 1Password
+  cache_file: string # the name of the cache file to store the secret
+] {
+  let cache_path = ($env.XDG_CACHE_HOME | path join $cache_file)
+  if ($cache_path | path exists) {
+    open $cache_path | str trim
+  } else {
+    let value = (/opt/homebrew/bin/op read $ref | str trim)
+    $value | save --force $cache_path
+    $value
+  }
+}
 
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
@@ -133,8 +146,8 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 
 $env.DOTNET_ROOT = $env.HOME + '/.dotnet'
 
-$env.ANTHROPIC_BASE_URL = 'http://localhost:8000'
-$env.ANTHROPIC_API_KEY = 'sk-1234'
+# LLM API keys
+$env.GEMINI_API_KEY = (get-secret "op://Development/Gemini API key/password" "gemini_api_key.cache")
 
 use std 'path add'
 

@@ -266,7 +266,7 @@ source ~/.config/nushell/commands.nu
 source ~/.cache/carapace/init.nu
 
 $env.ATUIN_NOBIND = true
-atuin init nu | str replace "job spawn -t atuin" "job spawn -d atuin" | save -f ~/.local/share/atuin/init.nu
+# atuin init nu | str replace "job spawn -t atuin" "job spawn -d atuin" | save -f ~/.local/share/atuin/init.nu
 source ~/.local/share/atuin/init.nu
 
 #bind to ctrl-r in emacs, vi_normal and vi_insert modes, add any other bindings you want here too
