@@ -228,6 +228,7 @@
           "terraform-ls"
           "hashicorp/tap/terraform"
           "pkg-config-wrapper"
+          "postgres-language-server"
 
           #-- AI --
           "gemini-cli"
