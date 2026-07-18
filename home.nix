@@ -10,6 +10,11 @@
     recursive = true;
   };
 
+  home.file.".bashrc" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/bashrc";
+  };
+
+
   home.file.".gitconfig" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/git/gitconfig";
   };
