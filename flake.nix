@@ -315,6 +315,7 @@
               "/Applications/Ghostty.app"
               "/Applications/Proxyman.app/"
               "/Applications/TablePlus.app/"
+              "/Applications/OrbStack.app/"
               "/System/Applications/Mail.app"
               "/System/Applications/iPhone Mirroring.app/"
               "/System/Applications/Notes.app/"
