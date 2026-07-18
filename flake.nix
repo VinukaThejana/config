@@ -174,6 +174,7 @@
           "redis-insight"
           "visual-studio-code"
           "programmer-dvorak"
+          "proxyman"
 
           #-- SDKs and Runtimes --
           "dotnet-sdk"
@@ -284,7 +285,6 @@
           "Refined GitHub" = 1519867270;
 
           #-- Social Media -- 
-          "Slack for Desktop" = 803453959;
           "WhatsApp" = 310633997;
 
           #-- Utility Applications --
@@ -292,7 +292,7 @@
           "Keynote" = 409183694;
           "Numbers" = 409203825;
           "Pages" = 409201541;
-          "Xcode" = 497799835;
+          # "Xcode" = 497799835;
           "Blackmagic Disk Speed Test" = 425264550;
 
           #-- Entetainment Applications --
@@ -305,24 +305,46 @@
       };
 
       fonts.packages = [ ];
+      programs.bash.enable = true;
 
       system.defaults = {
-        #--- Dock related settings--
-        dock.autohide = true;
-        dock.persistent-apps = [
-            "/Applications/Safari.app"
-            "/Applications/Ghostty.app"
-            "/System/Applications/Mail.app"
-            "/System/Applications/System Settings.app/"
-            "/System/Applications/iPhone Mirroring.app/"
-        ];
-        dock.show-recents = true;
+        dock = {
+          autohide = true;
+          persistent-apps = [
+              "/Applications/Safari.app"
+              "/Applications/Ghostty.app"
+              "/Applications/Proxyman.app/"
+              "/Applications/TablePlus.app/"
+              "/System/Applications/Mail.app"
+              "/System/Applications/iPhone Mirroring.app/"
+              "/System/Applications/Notes.app/"
+              "/System/Applications/Reminders.app/"
+              "/System/Applications/Messages.app/"
+          ];
+          show-recents = true;
+        };
 
-        #-- Finder related settings--
-        finder.FXPreferredViewStyle = "clmv";
-        finder.ShowPathbar = true;
-        finder.ShowStatusBar = true;
-        finder._FXShowPosixPathInTitle = true;
+        finder = {
+          FXPreferredViewStyle = "icnv";
+          ShowPathbar = true;
+          ShowStatusBar = true;
+          _FXShowPosixPathInTitle = true;
+
+          AppleShowAllExtensions = true;
+          AppleShowAllFiles = true;
+
+          FXEnableExtensionChangeWarning = false;
+          FXDefaultSearchScope = "SCcf";
+          _FXSortFoldersFirst = true;
+        };
+
+        NSGlobalDomain = {
+          ApplePressAndHoldEnabled = false;
+          InitialKeyRepeat = 15;
+          KeyRepeat = 2;
+
+          NSDocumentSaveNewDocumentsToCloud = false;
+        };
       };
 
       nix.settings.experimental-features = "nix-command flakes";
