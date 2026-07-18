@@ -220,6 +220,7 @@
 
           #-- Development Toolchains & Runtimes --
           "php-code-sniffer"
+          "container"
           "protobuf"
           "protoc-gen-go"
           "coreutils"
