@@ -294,6 +294,7 @@
           "Pages" = 409201541;
           # "Xcode" = 497799835;
           "Blackmagic Disk Speed Test" = 425264550;
+          "WireGuard" = 1451685025;
 
           #-- Entetainment Applications --
           "Rippple 2" = 6758765611;
