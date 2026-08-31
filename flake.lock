@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "alchemmist-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784481345,
+        "narHash": "sha256-NFHmCtja5yDJ8inZDYR7VJPxDH1aqHmxUvToDI/v98I=",
+        "owner": "alchemmist",
+        "repo": "homebrew-tap",
+        "rev": "34e19400a9bcd0ffc87c2e465cf2e27786a454b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alchemmist",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "asmvik-tap": {
       "flake": false,
       "locked": {
@@ -16,31 +32,14 @@
         "type": "github"
       }
     },
-    "brew-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1781226006,
-        "narHash": "sha256-w4ZTuOnhYiDxjaynrMTASzp802QblBWmo3wpB8wVN4Y=",
-        "owner": "Homebrew",
-        "repo": "brew",
-        "rev": "109191be4988470b51a60a5ef1998520aa24c01b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Homebrew",
-        "ref": "6.0.1",
-        "repo": "brew",
-        "type": "github"
-      }
-    },
     "hashicorp-tap": {
       "flake": false,
       "locked": {
-        "lastModified": 1782988047,
-        "narHash": "sha256-6VJF30A4E+REtWAt2nPmuwZ/TvoS+Nog7lFOWNMW4zU=",
+        "lastModified": 1785845491,
+        "narHash": "sha256-6VsYiqbaVRiloyQMRxXJiDJnnvShddgnwFeoXY8FiQg=",
         "owner": "hashicorp",
         "repo": "homebrew-tap",
-        "rev": "1d47bcf9f71f253ea5eb7e562ef5f2813383eec5",
+        "rev": "b7f5123d0d45cca02dc9b09e837f8b112fcd9e32",
         "type": "github"
       },
       "original": {
@@ -56,11 +55,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783458499,
-        "narHash": "sha256-a8whUXG4ThsZNjL92cH4wbl+/dt8CbT/F0zJsfhzFbM=",
+        "lastModified": 1785958398,
+        "narHash": "sha256-5r/JgsoNMTx+qIh83WkxpujEKBR7PF5ssnh5vYCuSAw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "53ebbdc405acc04acd9bb73ccca462b51ddb8c6d",
+        "rev": "a7c70cc290290f373f50cd820403833d250459ac",
         "type": "github"
       },
       "original": {
@@ -70,14 +69,46 @@
         "type": "github"
       }
     },
+    "homebrew-brew": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786019360,
+        "narHash": "sha256-8cvIzhDpvhm3z+RR36ha0paSFgGaeJuGG8INX5eaLHk=",
+        "owner": "homebrew",
+        "repo": "brew",
+        "rev": "73720671af9c86920d7baf090bfb4161765bb5ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "brew",
+        "type": "github"
+      }
+    },
+    "homebrew-bundle": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745335228,
+        "narHash": "sha256-TIKR2UgtyUmHLNZp255/vLs+1I10hXe+sciMEbAGFwE=",
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "rev": "a3265c84b232e13048ecbf6fc18a2eedfadbeb08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-bundle",
+        "type": "github"
+      }
+    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1783329606,
-        "narHash": "sha256-jBjMRG4+ZV4Ztjjs2kC9T85DHeNz7Cc2gIadAPce5gY=",
+        "lastModified": 1786048661,
+        "narHash": "sha256-rs+vze839wffg/OkjF8K5sMx+XlmYphXKahl6TXacUE=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "258b7fbf47194eec55036954b7e7ca5deed5ad63",
+        "rev": "31c54b133c40bdff4b1699f331820058b1c69e90",
         "type": "github"
       },
       "original": {
@@ -89,11 +120,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1783336592,
-        "narHash": "sha256-J998SnH4CsL/V/8Ris1O1lZ7Bauq9oED6Q2OGuZJr3k=",
+        "lastModified": 1786030011,
+        "narHash": "sha256-uvt+aaT+wIz4mYxBuw5zJ3NQn06XHYdbjqjR1rHa9rE=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "66326b0ec3776dec40a7a1a9346841331fe26234",
+        "rev": "53edc22030369be2cd875ae0921ac6564e16d4a7",
         "type": "github"
       },
       "original": {
@@ -125,11 +156,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783395956,
-        "narHash": "sha256-AAbexQvDoK+6GFJdhY6kqjA+6ECKRkidgWxkn4gMwAA=",
+        "lastModified": 1785389976,
+        "narHash": "sha256-0tLW8Ff5yt8AH97jw4ZpFJ0OCJ122zIlgWGDmOfU/VU=",
         "owner": "nix-darwin",
         "repo": "nix-darwin",
-        "rev": "d5bd9cd77aea4c0a8f49e7fd85545671a208ed15",
+        "rev": "15abb8c98f336cd8bd840d71059adebabe60bf04",
         "type": "github"
       },
       "original": {
@@ -141,14 +172,16 @@
     },
     "nix-homebrew": {
       "inputs": {
-        "brew-src": "brew-src"
+        "brew-src": [
+          "homebrew-brew"
+        ]
       },
       "locked": {
-        "lastModified": 1781389246,
-        "narHash": "sha256-ORqLAo/hoJdsZC7UPAuEHev6S0+XIqKEC7vjo5prz1k=",
+        "lastModified": 1785544760,
+        "narHash": "sha256-qV6OoNuly4ntqpCg7esIeJjUboxSnQNlLPxz+y5h9/o=",
         "owner": "zhaofengli",
         "repo": "nix-homebrew",
-        "rev": "de7953a08ed4bb9245be043e468561c17b89130d",
+        "rev": "937ce52c7d046310571f3a070713804ead496843",
         "type": "github"
       },
       "original": {
@@ -159,11 +192,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1783279667,
-        "narHash": "sha256-/NAkDSsve+GNM0Bt6tleJdCGfsTlK89nPjkVOzZMo0s=",
+        "lastModified": 1785747939,
+        "narHash": "sha256-D740uKsMbgsfK2oaDenJLLPIZfq7W0/g4KN/Fls8eKs=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f205b5574fd0cb7da5b702a2da51507b7f4fdd1b",
+        "rev": "104240a772428cc2e20d8fd86c9ddbb886bbaff2",
         "type": "github"
       },
       "original": {
@@ -175,9 +208,12 @@
     },
     "root": {
       "inputs": {
+        "alchemmist-tap": "alchemmist-tap",
         "asmvik-tap": "asmvik-tap",
         "hashicorp-tap": "hashicorp-tap",
         "home-manager": "home-manager",
+        "homebrew-brew": "homebrew-brew",
+        "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "jorgelbg-tap": "jorgelbg-tap",

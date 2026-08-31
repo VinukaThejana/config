@@ -46,8 +46,13 @@ Host github.com-uni
     User git
     IdentityFile ~/.ssh/uni
 
-
 Host github.com-pola
     HostName github.com
     User git
     IdentityFile ~/.ssh/pola
+
+Host github.com-pola-pandyt
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/pola-pandyt
+

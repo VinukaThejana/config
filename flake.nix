@@ -9,8 +9,19 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-homebrew = {
+      url = "github:zhaofengli/nix-homebrew";
+      inputs.brew-src.follows = "homebrew-brew"; # This is the crucial line
+    };
 
+    homebrew-brew = {
+      url = "github:homebrew/brew";
+      flake = false;
+    };
+    homebrew-bundle = {
+      url = "github:homebrew/homebrew-bundle";
+      flake = false;
+    };
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -35,6 +46,10 @@
       url = "github:hashicorp/homebrew-tap";
       flake = false;
     };
+    alchemmist-tap = {
+      url = "github:alchemmist/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs = inputs@{
@@ -45,8 +60,10 @@
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
+    homebrew-bundle,
     jorgelbg-tap,
     asmvik-tap,
+    alchemmist-tap,
     # zathura-tap,
     hashicorp-tap,
     ...
@@ -166,7 +183,6 @@
           "apidog"
           "ghostty"
           "tableplus"
-          "balenaetcher"
           "postman"
           "kindavim"
           "zed"
@@ -198,7 +214,6 @@
           "plex"
 
           #-- 3D Printing--
-          "bambu-studio"
           "openscad"
           "autodesk-fusion"
           "freecad"
@@ -226,11 +241,13 @@
           "protoc-gen-go"
           "coreutils"
           "pv"
-          "openssl"
           "terraform-ls"
           "hashicorp/tap/terraform"
           "pkg-config-wrapper"
           "postgres-language-server"
+          "wireguard-tools"
+          "mingw-w64"
+          "openssl@4"
 
           #-- AI --
           "gemini-cli"
@@ -255,7 +272,6 @@
           "aria2"
           "git-filter-repo"
           "telnet"
-          "git-filter-repo"
           "exiftool"
           "arduino-cli"
           "tectonic"
@@ -281,10 +297,10 @@
         masApps = {
           #-- Safari Extensions --
           "1Password for Safari" = 1569813296;
-          "AdGuard for Safari" = 1440147259;
           "Refined GitHub" = 1519867270;
+          "PayPal Honey for Safari" = 1472777122;
 
-          #-- Social Media -- 
+          #-- Social Media --
           "WhatsApp" = 310633997;
 
           #-- Utility Applications --
@@ -307,6 +323,7 @@
 
       fonts.packages = [ ];
       programs.bash.enable = true;
+      security.pam.services.sudo_local.touchIdAuth = true;
 
       system.defaults = {
         dock = {
@@ -349,7 +366,10 @@
         };
       };
 
+      # Determinate Nix manages its own daemon; nix-darwin must not conflict with it.
+      nix.enable = false;
       nix.settings.experimental-features = "nix-command flakes";
+
       system.configurationRevision = self.rev or self.dirtyRev or null;
       system.stateVersion = 6;
       nixpkgs.hostPlatform = "aarch64-darwin";
@@ -363,16 +383,19 @@
         {
           nix-homebrew = {
             enable = true;
-            enableRosetta = true;
+            enableRosetta = false;
             user = "vinuka";
+            autoMigrate = true;
             mutableTaps = true;
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "homebrew/homebrew-bundle" = homebrew-bundle;
               "jorgelbg/tap" = jorgelbg-tap;
               "asmvik/formulae" = asmvik-tap;
               # "homebrew-zathura/zathura" = zathura-tap;
               "hashicorp/homebrew-tap" = hashicorp-tap;
+              "alchemmist/homebrew-tap" = alchemmist-tap;
             };
 
             trust = {
@@ -381,6 +404,7 @@
                   "asmvik/formulae"
                   # "homebrew-zathura/zathura"
                   "hashicorp/homebrew-tap"
+                  "alchemmist/homebrew-tap"
                 ];
             };
           };
@@ -393,6 +417,7 @@
         {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
             home-manager.users.vinuka = import ./home.nix;
         }
       ];

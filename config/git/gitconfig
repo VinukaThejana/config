@@ -20,6 +20,9 @@
 [includeIf "gitdir:~/projects/pola/"]
   path = ~/.config/gitconfig/gitconfig.pola
 
+[includeIf "gitdir:~/projects/pola/pandyt"]
+  path = ~/.config/gitconfig/gitconfig.pola-pandyt
+
 [includeIf "gitdir:~/projects/polyvoxel/"]
   path = ~/.config/gitconfig/gitconfig.polyvoxel
 

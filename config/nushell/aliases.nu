@@ -12,7 +12,7 @@ alias tc = tmux new -s
 alias ta = tmux attach
 alias tka = tmux kill-session -a
 
-alias wget = wget -c 
+alias wget = wget -c
 alias grep = grep --color=auto
 alias fgrep = fgrep --color=auto
 alias egrep = egrep --color=auto
@@ -33,5 +33,3 @@ alias flake-update = nix flake update
 alias xdg-open = run-external open
 
 alias icloud = cd `/Users/vinuka/Library/Mobile Documents/com~apple~CloudDocs`
-
-('/usr/bin/paru' | path exists) and ('/usr/bin/yay' | path exists) and (alias yay = paru)
