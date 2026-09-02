@@ -5,6 +5,10 @@
   home.stateVersion = "26.05";
   programs.home-manager.enable = true;
 
+  home.sessionVariables = {
+    XDG_CONFIG_HOME = "/Users/vinuka/.config";
+  };
+
   xdg.configFile."nushell" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/nushell";
     recursive = true;

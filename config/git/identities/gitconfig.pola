@@ -1,10 +1,7 @@
 [user]
   email = ravindusulakshana2525@gmail.com
   name = Ravindu Sulakshana
-  signingKey = ~/.ssh/pola.pub
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID4cREFSzi/+CxyZkBtjaLGj+fgpxv7Xyz+oahEbv5SK
 
 [url "git@github.com-pola"]
   insteadOf = git@github.com
-
-[gpg]
-  format = ssh

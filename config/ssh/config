@@ -55,4 +55,3 @@ Host github.com-pola-pandyt
   HostName github.com
   User git
   IdentityFile ~/.ssh/pola-pandyt
-

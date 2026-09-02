@@ -8,3 +8,7 @@ export PATH="/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH"
 if [ -e /etc/bashrc ]; then
   . /etc/bashrc
 fi
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/vinuka/.local/bin:$PATH"

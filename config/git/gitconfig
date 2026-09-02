@@ -5,8 +5,15 @@
   gpgSign = true
 
 [user]
-  name = Vinuka Kodituwakku
+	name = Vinuka Kodituwakku
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIo5PIPH1QWNmwxQSA/CmvR6nS1sgU6LVkGE0CR7rpx1
   useConfigOnly = true
+	email = vinuka.t@icloud.com
+
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [include]
   path = ~/.config/gitconfig/gitconfig.personal
@@ -14,25 +21,25 @@
 [includeIf "gitdir:~/Documents/university/"]
   path = ~/.config/gitconfig/gitconfig.uni
 
-[includeIf "gitdir:~/projects/viduranga/"]
+[includeIf "gitdir:~/Developer/viduranga/"]
   path = ~/.config/gitconfig/gitconfig.viduranga
 
-[includeIf "gitdir:~/projects/pola/"]
+[includeIf "gitdir:~/Developer/pola/"]
   path = ~/.config/gitconfig/gitconfig.pola
 
-[includeIf "gitdir:~/projects/pola/pandyt"]
+[includeIf "gitdir:~/Developer/pola/pandyt"]
   path = ~/.config/gitconfig/gitconfig.pola-pandyt
 
-[includeIf "gitdir:~/projects/polyvoxel/"]
+[includeIf "gitdir:~/Developer/polyvoxel/"]
   path = ~/.config/gitconfig/gitconfig.polyvoxel
 
-[includeIf "gitdir:~/projects/kernel70/self/"]
+[includeIf "gitdir:~/Developer/kernel70/self/"]
   path = ~/.config/gitconfig/gitconfig.kernel70
 
-[includeIf "gitdir:~/projects/kernel70/paffrel/m12m/"]
+[includeIf "gitdir:~/Developer/kernel70/paffrel/m12m/"]
   path = ~/.config/gitconfig/gitconfig.m12m
 
-[includeIf "gitdir:~/projects/kernel70/paffrel/self/"]
+[includeIf "gitdir:~/Developer/kernel70/paffrel/self/"]
   path = ~/.config/gitconfig/gitconfig.paffrel
 
 [filter "lfs"]

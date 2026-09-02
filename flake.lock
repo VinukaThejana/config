@@ -206,6 +206,22 @@
         "type": "github"
       }
     },
+    "oven-sh-bun-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787234981,
+        "narHash": "sha256-d2zO9ZZHO3NsEt1dP3G6PptPVRSzYXUzilAM8/VJnaE=",
+        "owner": "oven-sh",
+        "repo": "homebrew-bun",
+        "rev": "4c6face3bac157f7687b6e4184b78d665c566ae6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oven-sh",
+        "repo": "homebrew-bun",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "alchemmist-tap": "alchemmist-tap",
@@ -219,7 +235,8 @@
         "jorgelbg-tap": "jorgelbg-tap",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "oven-sh-bun-tap": "oven-sh-bun-tap"
       }
     }
   },

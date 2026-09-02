@@ -50,6 +50,10 @@
       url = "github:alchemmist/homebrew-tap";
       flake = false;
     };
+    oven-sh-bun-tap = {
+      url = "github:oven-sh/homebrew-bun";
+      flake = false;
+    };
   };
 
   outputs = inputs@{
@@ -64,6 +68,7 @@
     jorgelbg-tap,
     asmvik-tap,
     alchemmist-tap,
+    oven-sh-bun-tap,
     # zathura-tap,
     hashicorp-tap,
     ...
@@ -71,7 +76,18 @@
   let
     configuration = { pkgs, ... }: {
       system.primaryUser = "vinuka";
+
+      environment.shells = [ pkgs.zsh pkgs.nushell ];
       users.users.vinuka.home = "/Users/vinuka";
+      users.users.vinuka.shell = pkgs.zsh;
+
+      environment.variables = {
+        XDG_CONFIG_HOME = "/Users/vinuka/.config";
+      };
+      launchd.user.envVariables = {
+        XDG_CONFIG_HOME = "/Users/vinuka/.config";
+      };
+
       nixpkgs.config.allowUnfree = true;
 
       # Disable all documentation engines
@@ -186,7 +202,7 @@
           "postman"
           "kindavim"
           "zed"
-          "rar"
+          # "rar"
           "redis-insight"
           "visual-studio-code"
           "programmer-dvorak"
@@ -214,7 +230,6 @@
           "plex"
 
           #-- 3D Printing--
-          "openscad"
           "autodesk-fusion"
           "freecad"
 
@@ -233,8 +248,10 @@
         brews = [
           #-- Window Management --
           "asmvik/formulae/skhd"
+          # "asmvik/formulae/yabai"
 
           #-- Development Toolchains & Runtimes --
+          "oven-sh/bun/bun"
           "php-code-sniffer"
           "container"
           "protobuf"
@@ -248,6 +265,7 @@
           "wireguard-tools"
           "mingw-w64"
           "openssl@4"
+          "zoxide"
 
           #-- AI --
           "gemini-cli"
@@ -305,12 +323,13 @@
 
           #-- Utility Applications --
           "HP" = 1474276998;
-          "Keynote" = 409183694;
-          "Numbers" = 409203825;
-          "Pages" = 409201541;
+          # "Keynote" = 409183694;
+          # "Numbers" = 409203825;
+          # "Pages" = 409201541;
           # "Xcode" = 497799835;
           "Blackmagic Disk Speed Test" = 425264550;
           "WireGuard" = 1451685025;
+	  "Infuse" = 1136220934;
 
           #-- Entetainment Applications --
           "Rippple 2" = 6758765611;
@@ -323,6 +342,7 @@
 
       fonts.packages = [ ];
       programs.bash.enable = true;
+      programs.zsh.enable = true;
       security.pam.services.sudo_local.touchIdAuth = true;
 
       system.defaults = {
@@ -396,6 +416,7 @@
               # "homebrew-zathura/zathura" = zathura-tap;
               "hashicorp/homebrew-tap" = hashicorp-tap;
               "alchemmist/homebrew-tap" = alchemmist-tap;
+              "oven-sh/bun" = oven-sh-bun-tap;
             };
 
             trust = {
@@ -405,6 +426,7 @@
                   # "homebrew-zathura/zathura"
                   "hashicorp/homebrew-tap"
                   "alchemmist/homebrew-tap"
+                  "oven-sh/bun"
                 ];
             };
           };

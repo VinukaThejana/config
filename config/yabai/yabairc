@@ -1,31 +1,16 @@
 #!/usr/bin/env sh
 
-# global settings
+# global settings — float by default, tile on demand
 yabai -m config layout                      float
 yabai -m config window_placement            second_child
-yabai -m config window_shadow               off
-yabai -m config window_opacity              off
-yabai -m config window_opacity_duration     0.2
-yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.9
-yabai -m config window_border               off
-
-# padding & gaps
-yabai -m config top_padding                 0
-yabai -m config bottom_padding              0
-yabai -m config left_padding                0
-yabai -m config right_padding               0
-yabai -m config window_gap                  0
-
-# mouse
 yabai -m config mouse_follows_focus         off
 yabai -m config focus_follows_mouse         off
 yabai -m config mouse_modifier              fn
-yabai -m config mouse_action1              move
-yabai -m config mouse_action2              resize
-yabai -m config mouse_drop_action          swap
+yabai -m config mouse_action1               move
+yabai -m config mouse_action2               resize
+yabai -m config mouse_drop_action           swap
 
-# float rules (apps that should always float)
+# apps that should never be tiled even when a space is switched to bsp
 yabai -m rule --add app="System Preferences"       manage=off
 yabai -m rule --add app="System Settings"          manage=off
 yabai -m rule --add app="Archive Utility"          manage=off
@@ -49,17 +34,10 @@ yabai -m rule --add app="^SecurityAgent$"          manage=off
 yabai -m rule --add app="^Security Agent$"         manage=off
 yabai -m rule --add app="^UserNotificationCenter$" manage=off
 
-# float rules for specific windows (e.g. dialogs, popups)
 yabai -m rule --add label="Finder"  app="^Finder$"  title="(Co(py|nnect)|Move|Info|Pref)" manage=off
 yabai -m rule --add                 app=".*"        title="(Preferences|Settings|Info)"   manage=off
 
-# force applications for specific spaces
-yabai -m rule --add app="^Ghostty$" grid=40:40:1:1:38:38
-
-# auto balance windows when one is closed
+# auto balance windows when one is closed (only matters once a space is tiled)
 yabai -m signal --add event=window_destroyed action="yabai -m space --balance"
-
-# add yabai to accessibility permissions
-sudo /opt/homebrew/bin/yabai --load-sa
 
 echo "yabai config loaded"

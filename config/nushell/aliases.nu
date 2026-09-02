@@ -27,7 +27,7 @@ alias lg = lazygit
 
 alias pinentry = pinentry-mac
 
-alias rebuild = sudo darwin-rebuild switch --flake ~/.config/nix
+alias rebuild = sudo darwin-rebuild switch --flake ~/.config/nix#Vinukas-MacBook-Pro
 alias flake-update = nix flake update
 
 alias xdg-open = run-external open

@@ -1,7 +1,7 @@
 [user]
   email = ravindu.perera@pandyt.com
   name = ravindu-pandyt
-  signingKey = ~/.ssh/pola-pandyt.pub
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJkP6DlEU+acSZ+D1RLo83vbObBzQQu+jlbM0N1ULM7o
 
 [url "git@github.com-pola-pandyt"]
   insteadOf = git@github.com
