@@ -230,8 +230,8 @@
           "plex"
 
           #-- 3D Printing--
-          "autodesk-fusion"
-          "freecad"
+          # "autodesk-fusion"
+          # "freecad"
 
           #-- System Utilities --
           "anydesk"
