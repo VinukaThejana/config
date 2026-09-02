@@ -202,6 +202,7 @@
           "postman"
           "kindavim"
           "zed"
+          "raycast"
           # "rar"
           "redis-insight"
           "visual-studio-code"
