@@ -361,6 +361,8 @@
               "/System/Applications/Reminders.app/"
               "/System/Applications/Messages.app/"
           ];
+          tilesize = 54;
+          wvous-br-corner = 14;
           show-recents = true;
         };
 
@@ -382,8 +384,19 @@
           ApplePressAndHoldEnabled = false;
           InitialKeyRepeat = 15;
           KeyRepeat = 2;
+          AppleInterfaceStyle = "Dark";
 
           NSDocumentSaveNewDocumentsToCloud = false;
+        };
+
+        WindowManager = {
+          AppWindowGroupingBehavior = true;
+          EnableTiledWindowMargins = false;
+          HideDesktop = true;
+        };
+
+        magicmouse = {
+          MouseButtonMode = "OneButton";
         };
       };
 
@@ -443,7 +456,10 @@
             home-manager.backupFileExtension = "hm-backup";
             home-manager.users.vinuka = import ./home.nix;
         }
-      ];
+      
+        ./.nixmac
+        ./modules/darwin/system-defaults.nix
+];
     };
   };
 }
