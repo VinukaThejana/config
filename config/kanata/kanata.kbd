@@ -1,0 +1,154 @@
+;; Kanata Configuration for macOS - Vim Normal Mode + System Keys
+
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps
+  ;; Function Row (F1 - F12)
+  f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
+
+  ;; Vim Navigation & Editing Keys
+  h j k l
+  a i o u d
+  x w b e c r
+  0 4 y p g
+
+  ;; Shift keys (tracked so 'fork' can detect real shift presses)
+  lsft rsft
+)
+
+(defalias
+  ;; --- Caps Lock Tap-Dance & Layer Switches ---
+  cap-main (tap-dance 180 (
+    (tap-hold 160 160 esc (layer-switch vim-mode))
+    caps
+  ))
+
+  to-default (layer-switch default)
+
+  ;; --- Vim Motions (macOS Shortcuts) ---
+  v-word-fwd   A-rght      ;; 'w' / 'e' -> Jump forward one word
+  v-word-back  A-left      ;; 'b'       -> Jump backward one word
+  v-line-start M-left      ;; '0'       -> Jump to start of line
+
+  ;; '$' / '4' -> Jump to end of line (releases shift cleanly)
+  v-line-end   (multi (release-key lsft) (release-key rsft) M-rght)
+
+  v-top-doc    M-up        ;; 'gg'      -> Jump to top of file
+  v-bot-doc    M-down      ;; 'G'       -> Jump to bottom of file
+
+  ;; --- Append / Insert Actions ---
+  v-append-end (multi (release-key lsft) (release-key rsft) M-rght @to-default)
+  a-action     (fork @to-default @v-append-end (lsft rsft))
+
+  v-insert-start (multi (release-key lsft) (release-key rsft) M-left @to-default)
+  i-action       (fork @to-default @v-insert-start (lsft rsft))
+
+  ;; 'o' / 'O' -> New line below/above + Insert
+  v-open-below (multi M-rght ret @to-default)
+  v-open-above (multi M-left ret up @to-default)
+  o-action     (fork @v-open-below @v-open-above (lsft rsft))
+
+  ;; --- Delete & Change Motions ('d' and 'c') ---
+  v-del-char   del         ;; 'x' -> Forward delete
+  v-del-word   A-bspc      ;; 'dw' -> Delete word
+  v-del-line   M-bspc      ;; 'dd' -> Delete line
+
+  ;; Direct layer toggles for multi-key sequences
+  d-key        (layer-toggle d-layer)
+
+  ;; Change motion aliases (Must be declared BEFORE c-key)
+  v-change-end (multi (release-key lsft) (release-key rsft) M-S-rght bspc @to-default)
+  v-change-line (multi (release-key lsft) (release-key rsft) M-bspc @to-default)
+  v-change-word (multi (release-key lsft) (release-key rsft) A-S-rght bspc @to-default)
+
+  c-key        (fork (layer-toggle c-layer) @v-change-end (lsft rsft))
+
+  ;; --- Clipboard Operations ('y' and 'p') ---
+  v-yank-line  (multi M-l M-c)  ;; 'yy' -> Select line & copy
+  v-paste      M-v              ;; 'p'  -> Paste
+  y-key        (layer-toggle y-layer)
+
+  ;; --- Redo / Undo ---
+  v-undo       M-z
+  v-redo       M-S-z
+
+  ;; --- macOS System Key Shortcuts ---
+  spotlight    A-S-M-spc
+  mctl         C-up
+  dictation    (multi C-A-S-M-d)
+  dnd          (multi C-A-M-d)
+)
+
+(deflayer default
+  @cap-main
+
+  ;; Function Row Mappings
+  brdn  brup  @mctl  @spotlight  @dictation  @dnd  prev  pp  next  mute  vold  volu
+
+  ;; Navigation & Editing Keys (Unchanged in Default Mode)
+  _ _ _ _
+  _ _ _ _ _
+  _ _ _ _ _ _
+  _ _ _ _ _
+
+  ;; Shift keys pass through normally
+  _ _
+)
+
+(deflayer vim-mode
+  @to-default
+
+  ;; Function Row
+  brdn  brup  @mctl  @spotlight  @dictation  @dnd  prev  pp  next  mute  vold  volu
+
+  ;; Navigation (H J K L)
+  left  down  up    rght
+
+  ;; Row: a  i  o  u  d
+  @a-action  @i-action  @o-action  @v-undo  @d-key
+
+  ;; Row: x  w  b  e  c  r
+  @v-del-char  @v-word-fwd  @v-word-back  @v-word-fwd  @c-key  @v-redo
+
+  ;; Row: 0  4  y  p  g
+  @v-line-start  @v-line-end  @y-key  @v-paste  @v-top-doc
+
+  ;; Shift keys pass through so fork can see real presses
+  _ _
+)
+
+;; --- Sub-Layers for Multi-Key Vim Sequences ---
+;; Exactly 35 keys per layer matching defsrc
+
+(deflayer d-layer
+  _
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _
+  _ _ _ _ @v-del-line
+  _ @v-del-word _ _ _ _
+  (multi M-S-left bspc) (multi M-S-rght bspc) _ _ _
+  _ _
+)
+
+(deflayer c-layer
+  _
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _
+  _ _ _ _ _
+  _ @v-change-word _ _ @v-change-line _
+  _ _ _ _ _
+  _ _
+)
+
+(deflayer y-layer
+  _
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _ _ _ _
+  _ _ _ _ _
+  _ _ _ _ _ _
+  _ _ @v-yank-line _ _
+  _ _
+)

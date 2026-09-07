@@ -88,6 +88,33 @@
         XDG_CONFIG_HOME = "/Users/vinuka/.config";
       };
 
+      launchd.daemons.karabiner-vhid = {
+        serviceConfig = {
+          ProgramArguments = [
+            "/Library/Application Support/org.pqrs/Karabiner-DriverKit-VirtualHIDDevice/Applications/Karabiner-VirtualHIDDevice-Daemon.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Daemon"
+          ];
+          RunAtLoad = true;
+          KeepAlive = true;
+          StandardOutPath = "/tmp/karabiner-vhid.log";
+          StandardErrorPath = "/tmp/karabiner-vhid.err.log";
+        };
+      };
+
+      launchd.daemons.kanata = {
+        serviceConfig = {
+          ProgramArguments = [
+            "/bin/sh"
+              "-c"
+              "/bin/sleep 5 && ${pkgs.kanata}/bin/kanata --cfg /Users/vinuka/.config/kanata/kanata.kbd"
+          ];
+          RunAtLoad = true;
+          KeepAlive = true;
+          ProcessType = "Interactive"; # Prevents macOS from throttling input remapping latency
+            StandardOutPath = "/tmp/kanata.log";
+          StandardErrorPath = "/tmp/kanata.err.log";
+        };
+      };
+
       nixpkgs.config.allowUnfree = true;
 
       # Disable all documentation engines
@@ -150,6 +177,7 @@
         google-cloud-sdk
         ngrok
         deno
+        kanata
 
         # --- Version Control ---
         git
@@ -456,9 +484,6 @@
             home-manager.backupFileExtension = "hm-backup";
             home-manager.users.vinuka = import ./home.nix;
         }
-      
-        ./.nixmac
-        ./modules/darwin/system-defaults.nix
 ];
     };
   };

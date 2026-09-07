@@ -60,6 +60,11 @@
     recursive = true;
   };
 
+  xdg.configFile."kanata" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/kanata";
+    recursive = true;
+  };
+
   xdg.configFile."lazydocker" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/lazydocker";
     recursive = true;
