@@ -6,6 +6,29 @@ return {
 		config = function()
 			vim.cmd.colorscheme("e-ink")
 			vim.opt.background = "dark"
+
+			-- Use the terminal's background color instead of the colorscheme's
+			local bg_groups = {
+				"Normal",
+				"NormalNC",
+				"NormalFloat",
+				"SignColumn",
+				"EndOfBuffer",
+				"LineNr",
+				"CursorLineNr",
+				"FoldColumn",
+				"ColorColumn",
+				"VertSplit",
+				"WinSeparator",
+				"StatusLine",
+				"StatusLineNC",
+			}
+			for _, group in ipairs(bg_groups) do
+				local hl = vim.api.nvim_get_hl(0, { name = group })
+				hl.bg = nil
+				hl.ctermbg = nil
+				vim.api.nvim_set_hl(0, group, hl)
+			end
 		end,
 	},
 	"e-ink-colorscheme/e-ink.nvim",
