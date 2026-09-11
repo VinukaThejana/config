@@ -4,5 +4,5 @@ Neovim configuration with heavily inspired remaps from [ThePrimeagen](https://gi
 
 ## Prerequisites
 
-- Install `ripgrep`
-- Install  `vale`, `clippy`, `biomejs`, `hadolint`, `phpcs` for linting
+- Install `ripgrep`.
+- Install  `vale`, `clippy`, `biomejs`, `hadolint`, `phpcs` for linting.
