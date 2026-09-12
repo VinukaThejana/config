@@ -236,6 +236,8 @@
           "visual-studio-code"
           "programmer-dvorak"
           "proxyman"
+          "codex"
+          "claude-code"
 
           #-- SDKs and Runtimes --
           "dotnet-sdk"
@@ -346,6 +348,9 @@
           "1Password for Safari" = 1569813296;
           "Refined GitHub" = 1519867270;
           "PayPal Honey for Safari" = 1472777122;
+
+          #-- Development --
+          "Xcode" = 497799835;
 
           #-- Social Media --
           "WhatsApp" = 310633997;
