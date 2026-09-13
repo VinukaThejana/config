@@ -248,6 +248,7 @@
 
           #-- AI --
           "codex"
+          "chatgpt"
 
           #-- Social Media--
           "telegram"
