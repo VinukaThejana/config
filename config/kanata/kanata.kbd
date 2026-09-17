@@ -17,6 +17,9 @@
 
   ;; Shift keys (tracked so 'fork' can detect real shift presses)
   lsft rsft
+
+  ;; Spacebar (used as Return in vim-mode)
+  spc
 )
 
 (defalias
@@ -75,6 +78,9 @@
   v-undo       M-z
   v-redo       M-S-z
 
+  ;; --- Spacebar as Return in vim-mode ---
+  v-return     ret
+
   ;; --- macOS System Key Shortcuts ---
   spotlight    A-S-M-spc
   mctl         C-up
@@ -96,6 +102,9 @@
 
   ;; Shift keys pass through normally
   _ _
+
+  ;; Spacebar behaves normally
+  _
 )
 
 (deflayer vim-mode
@@ -118,10 +127,13 @@
 
   ;; Shift keys pass through so fork can see real presses
   _ _
+
+  ;; Spacebar -> Return
+  @v-return
 )
 
 ;; --- Sub-Layers for Multi-Key Vim Sequences ---
-;; Exactly 35 keys per layer matching defsrc
+;; Exactly 36 keys per layer matching defsrc
 
 (deflayer d-layer
   _
@@ -131,6 +143,7 @@
   _ @v-del-word _ _ _ _
   (multi M-S-left bspc) (multi M-S-rght bspc) _ _ _
   _ _
+  _
 )
 
 (deflayer c-layer
@@ -141,6 +154,7 @@
   _ @v-change-word _ _ @v-change-line _
   _ _ _ _ _
   _ _
+  _
 )
 
 (deflayer y-layer
@@ -151,4 +165,5 @@
   _ _ _ _ _ _
   _ _ @v-yank-line _ _
   _ _
+  _
 )

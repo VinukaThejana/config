@@ -4,4 +4,4 @@
   signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOLcg2crXmvS55AK0M6c4wCLV14skjh8Lg9zXVz4l9B+
 
 [url "git@github.com-viduranga"]
-  insteadOf = git@gitlab.com
+  insteadOf = git@github.com

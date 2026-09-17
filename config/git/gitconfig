@@ -15,9 +15,6 @@
 [gpg "ssh"]
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
-[include]
-  path = ~/.config/gitconfig/gitconfig.personal
-
 [includeIf "gitdir:~/Documents/university/"]
   path = ~/.config/gitconfig/gitconfig.uni
 
