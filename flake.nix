@@ -245,6 +245,7 @@
           #-- Note taking and Productivity --
           "notion"
           "zoom"
+          "slack"
 
           #-- AI --
           "codex"
@@ -326,6 +327,7 @@
           "arduino-cli"
           "tectonic"
           "rclone"
+          "jira-cli"
 
           # Zathura and its plugins
           # "homebrew-zathura/zathura/zathura"

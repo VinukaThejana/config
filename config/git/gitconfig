@@ -21,6 +21,9 @@
 [includeIf "gitdir:~/Developer/viduranga/"]
   path = ~/.config/gitconfig/gitconfig.viduranga
 
+[includeIf "gitdir:~/Developer/pandyt/"]
+  path = ~/.config/gitconfig/gitconfig.pandyt
+
 [includeIf "gitdir:~/Developer/pola/"]
   path = ~/.config/gitconfig/gitconfig.pola
 

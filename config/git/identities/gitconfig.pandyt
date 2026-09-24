@@ -1,0 +1,7 @@
+[user]
+  email = vinuka.kodituwakku@pandyt.com
+  name = Vinuka Kodituwakku
+  signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID/n2iU/73//+G321w+7sbf+SoNjoQHKxlLlVSSX5QPb
+
+[url "git@github.com-pandyt"]
+  insteadOf = git@github.com

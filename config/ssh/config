@@ -19,6 +19,11 @@ Host github.com-viduranga
     User git
     IdentityFile ~/.ssh/viduranga
 
+Host github.com-pandyt
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/pandyt
+
 # PolyVoxel (GitLab)
 Host gitlab.com-polyvoxel
     HostName gitlab.com
