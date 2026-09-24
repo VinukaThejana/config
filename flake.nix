@@ -250,6 +250,7 @@
           #-- AI --
           "codex"
           "chatgpt"
+          "t3-code"
 
           #-- Social Media--
           "telegram"
