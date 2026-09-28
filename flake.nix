@@ -238,6 +238,7 @@
           "proxyman"
           "codex"
           "claude-code"
+          "tailscale"
 
           #-- SDKs and Runtimes --
           "dotnet-sdk"
