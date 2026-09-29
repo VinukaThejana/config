@@ -301,6 +301,7 @@
           "mingw-w64"
           "openssl@4"
           "zoxide"
+          "vite-plus"
 
           #-- AI --
           "gemini-cli"
