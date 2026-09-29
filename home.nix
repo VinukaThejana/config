@@ -18,7 +18,6 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/bashrc";
   };
 
-
   home.file.".gitconfig" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/git/gitconfig";
   };
@@ -43,6 +42,10 @@
 
   home.file.".rtorrent.rc" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/rtorrent.rc";
+  };
+
+  home.file.".claude/CLAUDE.md" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/claude/CLAUDE.md";
   };
 
   xdg.configFile."carapace" = {
