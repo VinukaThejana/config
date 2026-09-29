@@ -48,6 +48,11 @@
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/claude/CLAUDE.md";
   };
 
+  home.file.".claude/skills" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/claude/skills";
+    recursive = true;
+  };
+
   xdg.configFile."carapace" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/carapace";
     recursive = true;
