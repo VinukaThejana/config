@@ -153,6 +153,11 @@ in
     recursive = true;
   };
 
+  xdg.configFile."rex" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/rex";
+    recursive = true;
+  };
+
   xdg.configFile."skhd" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nix/config/skhd";
     recursive = true;
