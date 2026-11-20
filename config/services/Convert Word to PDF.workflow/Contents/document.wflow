@@ -21,17 +21,25 @@
 					<true/>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>com.apple.cocoa.string</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>1.0.2</string>
+				<string>2.0.3</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Automator</string>
 				</array>
 				<key>AMParameterProperties</key>
 				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
 					<key>source</key>
 					<dict/>
 				</dict>
@@ -41,22 +49,42 @@
 					<string>List</string>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>com.apple.cocoa.string</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
 				<key>ActionName</key>
-				<string>Run AppleScript</string>
+				<string>Run Shell Script</string>
 				<key>ActionParameters</key>
 				<dict>
+					<key>COMMAND_STRING</key>
+					<string># Converts each selected file to a PDF next to it with headless LibreOffice.
+# The dedicated profile keeps conversion working while the LibreOffice app is open.
+soffice=/Applications/LibreOffice.app/Contents/MacOS/soffice
+failed=()
+for f in "$@"; do
+  "$soffice" -env:UserInstallation="file://$HOME/Library/Caches/pdf-quick-action" \
+    --headless --convert-to pdf --outdir "${f:h}" "$f" &gt;/dev/null 2&gt;&amp;1 \
+    &amp;&amp; [[ -f "${f:r}.pdf" ]] || failed+=("${f:t}")
+done
+if (( $#failed )); then
+  osascript -e 'on run argv' -e 'display alert "PDF conversion failed" message (item 1 of argv)' -e 'end run' "${(F)failed}"
+fi
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/zsh</string>
 					<key>source</key>
-					<string>on run {input, parameters}	repeat with selectedFile in input		set filePath to POSIX path of selectedFile				if filePath ends with ".docx" then			set pdfPath to (text 1 thru -6 of filePath) &amp; ".pdf"			try				-- Tell Pages to do everything without activating it				tell application "Pages"					set theDoc to open selectedFile					export theDoc to (POSIX file pdfPath) as PDF					close theDoc saving no				end tell			on error errMsg				display dialog "Error: " &amp; errMsg buttons {"OK"} default button 1			end try		end if	end repeat		-- Tell the Pages application to quit after the loop is done	tell application "Pages" to quit		return inputend run</string>
+					<string></string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
+				<string>com.apple.RunShellScript</string>
 				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
+				<string>2.0.3</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -66,17 +94,21 @@
 					<string>AMCategoryUtilities</string>
 				</array>
 				<key>Class Name</key>
-				<string>RunScriptAction</string>
+				<string>RunShellScriptAction</string>
 				<key>InputUUID</key>
-				<string>3D476978-75E1-492D-B939-FDA47967DA9B</string>
+				<string>E7E5DC8B-F7D1-4DAC-856E-78F3DB2B0EBB</string>
 				<key>Keywords</key>
 				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
 					<string>Run</string>
+					<string>Unix</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>14FDDEE3-9AB0-445F-9E96-90D8560EB17D</string>
+				<string>9500DB8E-2631-47F5-B66F-190C12CD2CA0</string>
 				<key>UUID</key>
-				<string>18C51830-290D-4FCB-B488-86FAB6FB5B16</string>
+				<string>CD6E9EF7-9CC1-484F-B778-91E1261EA966</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -86,12 +118,33 @@
 					<key>0</key>
 					<dict>
 						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
 						<key>name</key>
 						<string>source</string>
 						<key>required</key>
@@ -99,7 +152,33 @@ end run</string>
 						<key>type</key>
 						<string>0</string>
 						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
 						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
 					</dict>
 				</dict>
 				<key>conversionLabel</key>
@@ -109,7 +188,7 @@ end run</string>
 				<key>location</key>
 				<string>512.750000:368.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<integer>1</integer>

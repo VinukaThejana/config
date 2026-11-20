@@ -21,17 +21,25 @@
 					<true/>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>com.apple.cocoa.string</string>
 					</array>
 				</dict>
 				<key>AMActionVersion</key>
-				<string>1.0.2</string>
+				<string>2.0.3</string>
 				<key>AMApplication</key>
 				<array>
 					<string>Automator</string>
 				</array>
 				<key>AMParameterProperties</key>
 				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
 					<key>source</key>
 					<dict/>
 				</dict>
@@ -41,22 +49,42 @@
 					<string>List</string>
 					<key>Types</key>
 					<array>
-						<string>com.apple.applescript.object</string>
+						<string>com.apple.cocoa.string</string>
 					</array>
 				</dict>
 				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
 				<key>ActionName</key>
-				<string>Run AppleScript</string>
+				<string>Run Shell Script</string>
 				<key>ActionParameters</key>
 				<dict>
+					<key>COMMAND_STRING</key>
+					<string># Converts each selected file to a PDF next to it with headless LibreOffice.
+# The dedicated profile keeps conversion working while the LibreOffice app is open.
+soffice=/Applications/LibreOffice.app/Contents/MacOS/soffice
+failed=()
+for f in "$@"; do
+  "$soffice" -env:UserInstallation="file://$HOME/Library/Caches/pdf-quick-action" \
+    --headless --convert-to pdf --outdir "${f:h}" "$f" &gt;/dev/null 2&gt;&amp;1 \
+    &amp;&amp; [[ -f "${f:r}.pdf" ]] || failed+=("${f:t}")
+done
+if (( $#failed )); then
+  osascript -e 'on run argv' -e 'display alert "PDF conversion failed" message (item 1 of argv)' -e 'end run' "${(F)failed}"
+fi
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>1</integer>
+					<key>shell</key>
+					<string>/bin/zsh</string>
 					<key>source</key>
-					<string>on run {input, parameters}	repeat with selectedFile in input		set filePath to POSIX path of selectedFile		set pdfPath to (text 1 thru -5 of filePath) &amp; ".pdf"				try			tell application "Keynote"				-- Explicitly activate to ensure it's running and ready				activate								set theDoc to open selectedFile				delay 1								export theDoc to (POSIX file pdfPath) as PDF				close theDoc saving no			end tell		on error errMsg			-- Try to quit Keynote even if an error occurs			try				tell application "Keynote" to quit			end try			display dialog "An error occurred: " &amp; errMsg buttons {"OK"} default button 1		end try	end repeat		-- Quit Keynote when done	tell application "Keynote" to quit		return inputend run</string>
+					<string></string>
 				</dict>
 				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
+				<string>com.apple.RunShellScript</string>
 				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
+				<string>2.0.3</string>
 				<key>CanShowSelectedItemsWhenRun</key>
 				<false/>
 				<key>CanShowWhenRun</key>
@@ -66,17 +94,21 @@
 					<string>AMCategoryUtilities</string>
 				</array>
 				<key>Class Name</key>
-				<string>RunScriptAction</string>
+				<string>RunShellScriptAction</string>
 				<key>InputUUID</key>
-				<string>9F2E854B-97B1-44C2-8CB2-DF21A5B4FDCF</string>
+				<string>B8B42C09-AFE3-439C-85BE-18D5FC28047E</string>
 				<key>Keywords</key>
 				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
 					<string>Run</string>
+					<string>Unix</string>
 				</array>
 				<key>OutputUUID</key>
-				<string>FFC09715-12C9-4746-8651-38E75B55351B</string>
+				<string>9F6E79D1-E563-4595-B9C4-D8014296AAE8</string>
 				<key>UUID</key>
-				<string>B579943D-4D5E-41E1-AB08-08CEDB42B050</string>
+				<string>A62EC77F-5884-4B89-8471-E3AB3CB74CC6</string>
 				<key>UnlocalizedApplications</key>
 				<array>
 					<string>Automator</string>
@@ -86,14 +118,9 @@
 					<key>0</key>
 					<dict>
 						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
+						<integer>0</integer>
 						<key>name</key>
-						<string>source</string>
+						<string>inputMethod</string>
 						<key>required</key>
 						<string>0</string>
 						<key>type</key>
@@ -101,13 +128,67 @@ end run</string>
 						<key>uuid</key>
 						<string>0</string>
 					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
 				</dict>
+				<key>conversionLabel</key>
+				<integer>0</integer>
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
 				<string>512.750000:368.000000</string>
 				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
 			<integer>1</integer>

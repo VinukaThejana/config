@@ -275,6 +275,7 @@
           "telegram"
 
           #-- Document and PDF Management --
+          "libreoffice" # used by the "Convert * to PDF" Quick Actions
 
           #-- Entetainment --
           "spotify"
