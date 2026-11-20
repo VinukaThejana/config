@@ -141,6 +141,7 @@
         # --- Development Toolchains & Runtimes ---
         cmake
         cocoapods
+        fvm          # Flutter version manager; projects pin their SDK via .fvmrc
         go
         gradle
         jdt-language-server # Formerly `jdtls` from Homebrew
@@ -251,6 +252,7 @@
           "claude-code"
           "tailscale"
           "mactex-no-gui"
+          "ngrok"
 
           #-- SDKs and Runtimes --
           "dotnet-sdk"
@@ -265,6 +267,9 @@
           "chatgpt"
           "t3-code"
           "claude"
+
+          #-- Browsers --
+          "google-chrome"
 
           #-- Social Media--
           "telegram"
